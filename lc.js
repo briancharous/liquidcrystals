@@ -51,17 +51,19 @@ function initControls() {
 function addMolecules(num) {
 
     var geometry = new THREE.CylinderGeometry(1, 1, 10, 30);
-    var material  = new THREE.MeshLambertMaterial({color: 0xFF0000});
 
-    for (var i = -num/2; i < num/2; i++) {
+    var material  = new THREE.MeshLambertMaterial({color: 0xFF0000});
+    var axisHelper = new THREE.AxisHelper( 20 );
+    scene.add( axisHelper );
+    for (var i = 0; i < num; i++) {
         var lc = new THREE.Mesh(geometry, material);
         lc.rotation.x = -Math.PI/2;
         lc.castShadow = true;
-        lc.position.y = 3*i;
+        lc.position.y = (i-num/2+1)*3;
+        lc.rotation.z = i/(num-1) * Math.PI/2;
         molecules.push(lc);
         scene.add(lc);
     }
-
 
     camera.position.z = 20;
     camera.position.x = 20;
@@ -109,7 +111,10 @@ function onEFieldSliderChange(value, max) {
     var rotatePercent = value/max;
     for (var i = 0; i < molecules.length; i++) {
         var m = molecules[i];
-        m.rotation.z = i/molecules.length * rotatePercent * Math.PI/2;
+//         var axis = new THREE.Vector3(0, 0, 0);
+//         m.rotateOnAxis(axis, rotatePercent * Math.PI/2);
+        m.rotation.y = (rotatePercent * Math.PI/2)*i/molecules.length;
+//         m.rotation.x = rotatePercent * Math.PI/2;
     }
     render();
 }
