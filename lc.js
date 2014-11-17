@@ -11,10 +11,11 @@ var molecules = [];
 
 function initWebGL() {
     scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+    container = document.getElementById("container");
+    camera = new THREE.PerspectiveCamera(75, container.offsetWidth / container.offsetHeight, 0.1, 1000);
 
     renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(container.offsetWidth, container.offsetHeight);
     renderer.setClearColor(0xffffff, 1);
     renderer.shadowMapEnabled = true;
     renderer.shadowMapSoft = true;
@@ -26,7 +27,6 @@ function initWebGL() {
     renderer.shadowMapDarkness = 0.5;
     renderer.shadowMapWidth = 1024;
     renderer.shadowMapHeight = 1024;
-    container = document.getElementById("container");
     container.appendChild(renderer.domElement);
 
     controls = new THREE.OrbitControls(camera, renderer.domElement);
@@ -38,33 +38,20 @@ function initWebGL() {
     window.addEventListener( 'resize', onWindowResize, false );
 }
 
-function initControls() {
-    //var gui = new dat.GUI({
-    //   height : 5*32-1
-    //});
-    //var params = {
-    //    ElectricField: 10
-    //};
-    //gui.add(params, 'ElectricField').min(0).max(100).step(1);
-}
-
 function addMolecules(num) {
 
     var geometry = new THREE.CylinderGeometry(1, 1, 10, 30);
-
     var material  = new THREE.MeshLambertMaterial({color: 0xFF0000});
     var axisHelper = new THREE.AxisHelper( 20 );
     scene.add( axisHelper );
     for (var i = 0; i < num; i++) {
         var lc = new THREE.Mesh(geometry, material);
-        lc.rotation.x = -Math.PI/2;
-        lc.castShadow = true;
-        lc.position.y = (i-num/2+1)*3;
-        lc.rotation.z = i/(num-1) * Math.PI/2;
+        lc.position.x = (i-num/2+1)*3;
+        lc.rotation.x = i/(num-1) * Math.PI/2;
         molecules.push(lc);
         scene.add(lc);
     }
-
+    
     camera.position.z = 20;
     camera.position.x = 20;
     camera.position.y = 20;
@@ -97,11 +84,10 @@ function addLight() {
 
 
 function onWindowResize() {
-
-    camera.aspect = window.innerWidth / window.innerHeight;
+    container = document.getElementById("container");
+    camera.aspect = container.offsetWidth / container.offsetHeight;
     camera.updateProjectionMatrix();
-
-    renderer.setSize( window.innerWidth, window.innerHeight );
+    renderer.setSize(container.offsetWidth, container.offsetHeight);
 
     render();
 
@@ -113,7 +99,8 @@ function onEFieldSliderChange(value, max) {
         var m = molecules[i];
 //         var axis = new THREE.Vector3(0, 0, 0);
 //         m.rotateOnAxis(axis, rotatePercent * Math.PI/2);
-        m.rotation.y = (rotatePercent * Math.PI/2)*i/molecules.length;
+        m.rotation.z = (rotatePercent * Math.PI/2);
+//         m.position.z = m.position.z + rotatePercent;
 //         m.rotation.x = rotatePercent * Math.PI/2;
     }
     render();
