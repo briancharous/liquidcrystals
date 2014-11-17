@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
+<meta charset="utf-8">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,7 +14,7 @@
     <script src="js/jquery.min.js"></script>
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-paper.min.css">
     
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
@@ -21,35 +22,43 @@
     
 </head>
 <body>
-   <!-- Static navbar -->
-      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container-fluid">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Liquid Crystals</a>
-          </div>
-          <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li><a href="index.html">Home</a></li>
-              <li class="active"><a href="background.html">Background</a></li>
-              <li><a href="#">Section 2</a></li>
-            </ul>
-          </div><!--/.nav-collapse -->
-        </div><!--/.container-fluid -->
-      </nav>
-    
-    <div class="container">
+      <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.html">Liquid Crystals</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Home</a></li>
+            <li class="active"><a href="background.html">Background</a></li>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>   
 
-      <h1>Background</h1>
-      <h2>What are Liquid Crystals?</h2>
-      Liquid crystals are a state of matter first discovered in the late 19th century. Liquid crystals exhibit the ability to flow like a liquid yet are have molecular structure like that of a solid crystal. In a liquid crystal material, the positional order of the molecules either fully or partially disappears while at least some degree orientational order is left intact. The type of liquid crystal that is the most studied is the <em>calmitic</em> liquid crystal. The molecules in a calmitic liquid crystal have more of a rod shape to them. There are currently more than 20,000 calmitic compounds. The molecular structure of liquid crystal compounds can change with either temperature or concentration. Liquid crystals that change with temperature are called <em>thermotropic</em>. Calmitic, thermotropic liquid crystals are the basis for liquid crystal displays.
-      
-      <h2>Phases of Liquid Crystals</h2>
-      
-
-    </div> <!-- /container -->
+    <div class="container"> 
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+        <h3 class="panel-title" style="font-size: x-large;">What are Liquid Crystals?</h1>
+        </div>
+        <div class="panel-body">
+        <p>Liquid crystals are a state of matter first discovered in the late 19th century. Liquid crystals exhibit the ability to flow like a liquid yet are have molecular structure like that of a solid crystal. In a liquid crystal material, the positional order of the molecules either fully or partially disappears while at least some degree orientational order is left intact. The type of liquid crystal that is the most studied is the <em>calmitic</em> liquid crystal. The molecules in a calmitic liquid crystal have more of a rod shape to them. There are currently more than 20,000 calmitic compounds. The molecular structure of liquid crystal compounds can change with either temperature or concentration. Liquid crystals that change with temperature are called <em>thermotropic</em>. Calmitic, thermotropic liquid crystals are the basis for liquid crystal displays.</p>
+        </div>
+    </div>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+        <h3 class="panel-title" style="font-size: x-large;">Phases of Liquid Crystals</h3>
+        </div>
+        <div class="panel-body">
+            <p>Liquid crystals exist in various <em>phases</em>. A phase describes the organization of molecules within the liquid crystal substance itself. The most common phase is the <em>nematic</em> phase. In the nematic phase, the molecules in the liquid crystal all point in the same direction, but have no other order (i.e. they are not organized into layers nor do they have any sort of twist). </p>
+            <img width="25%" style="margin-left: auto; margin-right: auto; display: block;" src="http://upload.wikimedia.org/wikipedia/commons/8/80/LiquidCrystal-MesogenOrder-Nematic.jpg">
+            <p>This image shows a representation of liquid crystal molecules in the nematic phase</p>
+        </div>
+    </div>
+</body>
