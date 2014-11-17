@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head lang="en">
+<meta charset="utf-8">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,7 +18,6 @@
     
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-    
     <title>3D Liquid Crystal?!</title>
     
 </head>
@@ -36,13 +36,13 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="background.html">Background</a></li>
             <li><a href="polarization.html">Polarization</a></li>
-            <li class="dropdown">
+            <li class="dropdown active">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">LCDs<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
-                  <li><a href="lcds.html">Background</a></li>
+                  <li class="active"><a href="lcds.html">Background</a></li>
                   <li><a href="lc-3d.html">Demo</a></li>
                 </ul>
               </li>
@@ -50,28 +50,28 @@
         </div>
       </div>
     </nav>
-    
-    <div class="container">
-      <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <h1>Liquid Crystals</h1>
-        <p>Liquid crystals are a state of matter that exhibit properties of both a solid and a liquid. Like a solid, the molecules exhibit some level of organization. Like a liquid, they flow and take the shape of their container.</p>
-        <p>While liquid crystals were once just an interesting phenomenon, in the past half-century or so, they have become of great interest due to their wide variety of applications. Let's explore how we can use liquid crystals to make useful devices!</p>
-            <a href="background.html" class="btn btn-primary btn-block" role="button">Learn More</a>
-      </div>
-    <div id="container"></div>
 
+    <div class="container"> 
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+        <h3 class="panel-title" style="font-size: x-large;">How a pixel works</h1>
+        </div>
+        <div class="panel-body">
+        <p>To make a subpixel for an LCD, nematic liquid crystals are placed in between two polarizers rotated at 90 degrees from each other. Transparent electrodes are also placed around the liquid crystals. The liquid crystals are twisted in between the polarizers. As light passes through the liquid crystal, the plane of polarization follows the liquid crystals twist. Thus, when the light reaches the opposite polarizer, it will have the same polarization as the top polarizer and the pixel will appear white. As an electric field is applied, the liquid crystals rotate in the direction of the field. Eventually, the light will only see one index of refraction and the polarization will not change. All the light will be blocked by the second polarizer and the pixel will appear black.</p>
+            
+            <p align="center"><a href="lc-3d.html" class="btn btn-info" role="button">See a demo of an lcd pixel</a></p>
+
+        </div>
     </div>
     
-
-<script>
-    $(document).ready(function() {
-        initWebGL();
-        addMolecules(10);
-        addLight();
-        render();
-    });
-</script>
-
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title" style="font-size: x-large;">Creating a full-color LCD</h3>
+        </div>
+        <div class="panel-body">
+            <p>To create a full color LCD, each pixel is really 3 pixels. Each sub-pixel is covered by a filter that only lets red, green, or blue light through. By varying the intensity of the red, green, and blue sub-pixel a full array of colors can be created. Putting millions of these 3 sub-pixel arrangements together creates a full-color screen. </p>
+        </div>
+    </div>
+        
+    </div>
 </body>
-</html>

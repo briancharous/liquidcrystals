@@ -12,10 +12,10 @@ var molecules = [];
 function initWebGL() {
     scene = new THREE.Scene();
     container = document.getElementById("container");
-    camera = new THREE.PerspectiveCamera(75, container.offsetWidth / container.offsetHeight, 0.1, 1000);
+    camera = new THREE.PerspectiveCamera(60, 1, 0.1, 1000);
 
     renderer = new THREE.WebGLRenderer();
-    renderer.setSize(container.offsetWidth, container.offsetHeight);
+    renderer.setSize(container.offsetWidth, container.offsetWidth);
     renderer.setClearColor(0xffffff, 1);
     renderer.shadowMapEnabled = true;
     renderer.shadowMapSoft = true;
@@ -42,8 +42,10 @@ function addMolecules(num) {
 
     var geometry = new THREE.CylinderGeometry(1, 1, 10, 30);
     var material  = new THREE.MeshLambertMaterial({color: 0xFF0000});
+/*
     var axisHelper = new THREE.AxisHelper( 20 );
     scene.add( axisHelper );
+*/
     for (var i = 0; i < num; i++) {
         var lc = new THREE.Mesh(geometry, material);
         lc.position.x = (i-num/2+1)*3;
@@ -85,25 +87,24 @@ function addLight() {
 
 function onWindowResize() {
     container = document.getElementById("container");
-    camera.aspect = container.offsetWidth / container.offsetHeight;
+    camera.aspect = 1;
     camera.updateProjectionMatrix();
-    renderer.setSize(container.offsetWidth, container.offsetHeight);
-
+    renderer.setSize(container.offsetWidth, container.offsetWidth);
     render();
-
 }
 
 function onEFieldSliderChange(value, max) {
     var rotatePercent = value/max;
     for (var i = 0; i < molecules.length; i++) {
         var m = molecules[i];
-//         var axis = new THREE.Vector3(0, 0, 0);
-//         m.rotateOnAxis(axis, rotatePercent * Math.PI/2);
         m.rotation.z = (rotatePercent * Math.PI/2);
-//         m.position.z = m.position.z + rotatePercent;
-//         m.rotation.x = rotatePercent * Math.PI/2;
     }
     render();
+    
+    // adjust pixel color
+    pixel = document.getElementById("pixel");
+    rgbVal = Math.floor(((1-rotatePercent)*255));
+    pixel.style.background = "rgb(" + rgbVal + "," + rgbVal + "," + rgbVal + ")";
 }
 
 function render() {

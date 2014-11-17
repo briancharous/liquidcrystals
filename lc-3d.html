@@ -40,11 +40,20 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="index.html">Home</a></li>
+            <li><a href="index.html">Home</a></li>
             <li><a href="background.html">Background</a></li>
-        </div><!--/.nav-collapse -->
+            <li><a href="polarization.html">Polarization</a></li>
+            <li class="dropdown active">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">LCDs<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="lcds.html">Background</a></li>
+                  <li class="active"><a href="lc-3d.html">Demo</a></li>
+                </ul>
+              </li>
+          </ul>
+        </div>
       </div>
-    </nav>  
+    </nav> 
     
     <div class="container">
 <div id="controls">
@@ -52,8 +61,8 @@
         Electric Field Strength: <input type="range" name="rotation" min="0" max="100" value="0" oninput="onEFieldSliderChange(this.value, this.max);">
     </form>
 </div>
-    <div class="col-md-8" id="container" style="height: 400px;"></div>
-    <div class="col-md-4" id="polarizer"><p>blasdfasdfasdfadsla dfsadfsadska dsjkadsjka sdfjk fdsjkadjk safkjdf akjdjk</p></div>
+    <div class="col-md-6" id="container"><h4 align="center">Liquid Crystals</h4></div>
+    <div class="col-md-6" id="polarizer"><h4 align="center">Pixel</h4><div id="pixel" style="background: rgb(255,255,255); padding: 100px; display: table; margin: 0 auto; border: 1px solid black"></div></div>
     
 
 <script>
