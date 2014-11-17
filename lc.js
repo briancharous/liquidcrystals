@@ -12,7 +12,7 @@ var molecules = [];
 function initWebGL() {
     scene = new THREE.Scene();
     container = document.getElementById("container");
-    camera = new THREE.PerspectiveCamera(60, 1, 0.1, 1000);
+    camera = new THREE.PerspectiveCamera(100, 1, 1, 100);
 
     renderer = new THREE.WebGLRenderer();
     renderer.setSize(container.offsetWidth, container.offsetWidth);
@@ -24,18 +24,20 @@ function initWebGL() {
     renderer.shadowCameraFov = 50;
 
     renderer.shadowMapBias = 0.0039;
-    renderer.shadowMapDarkness = 0.5;
+    renderer.shadowMapDarkness = 0;
     renderer.shadowMapWidth = 1024;
     renderer.shadowMapHeight = 1024;
     container.appendChild(renderer.domElement);
 
     controls = new THREE.OrbitControls(camera, renderer.domElement);
     controls.damping = 2.0;
-    controls.z = 1;
+    controls.z = 0;
+//     controls.minPolarAngle = -Math.PI;
+//     controls.maxPolarAngle = Math.PI;
     controls.addEventListener('change', render);
     requestAnimationFrame(render);
     controls.update();
-    window.addEventListener( 'resize', onWindowResize, false );
+    window.addEventListener('resize', onWindowResize, false);
 }
 
 function addMolecules(num) {
@@ -54,14 +56,29 @@ function addMolecules(num) {
         scene.add(lc);
     }
     
-    camera.position.z = 20;
-    camera.position.x = 20;
+    camera.position.z = 30;
+    camera.position.x = 0;
     camera.position.y = 20;
     camera.lookAt({
         x: 0,
         y: 0,
         z: 0
     });
+    
+    addPolarizers(i);
+}
+
+function addPolarizers(i) {
+    var geometry = new THREE.PlaneGeometry( 20, 20, 5 );
+    var material = new THREE.MeshBasicMaterial( {color: 0xaaaaaa, side: THREE.DoubleSide} );
+    var plane = new THREE.Mesh(geometry, material);
+    var plane2 = new THREE.Mesh(geometry, material);
+    plane.rotation.y = Math.PI/2;
+    plane2.rotation.y = Math.PI/2;
+    plane.position.x = (i+1)*1.55;
+    plane2.position.x = -(i+1)*1.55;
+    scene.add(plane);
+    scene.add(plane2);
 }
 
 function addLight() {

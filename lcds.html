@@ -43,7 +43,7 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">LCDs<span class="caret"></span></a>
                 <ul class="dropdown-menu" role="menu">
                   <li class="active"><a href="lcds.html">Background</a></li>
-                  <li><a href="lc-3d.html">Demo</a></li>
+                  <li><a href="lc-3d.html">Pixel Demo</a></li>
                 </ul>
               </li>
           </ul>
@@ -57,7 +57,9 @@
         <h3 class="panel-title" style="font-size: x-large;">How a pixel works</h1>
         </div>
         <div class="panel-body">
-        <p>To make a subpixel for an LCD, nematic liquid crystals are placed in between two polarizers rotated at 90 degrees from each other. Transparent electrodes are also placed around the liquid crystals. The liquid crystals are twisted in between the polarizers. As light passes through the liquid crystal, the plane of polarization follows the liquid crystals twist. Thus, when the light reaches the opposite polarizer, it will have the same polarization as the top polarizer and the pixel will appear white. As an electric field is applied, the liquid crystals rotate in the direction of the field. Eventually, the light will only see one index of refraction and the polarization will not change. All the light will be blocked by the second polarizer and the pixel will appear black.</p>
+        <p>To make a subpixel for an LCD, nematic liquid crystals are placed in between two polarizers rotated at 90 degrees from each other. The polarizers are treated such that the liquid crystals that come in contact with them align with the direction of polarization. This causes the liquid crystals to for a helical twist in between the polarizers. Then, we place transparent electrodes around the liquid crystals as well. As light passes through the liquid crystal, the plane of polarization follows the liquid crystals's twist. When the light reaches the opposite polarizer, it will have the same polarization as the top polarizer and the pixel will appear white. Recall that without liquid crystals, if two linear polarizers are placed on top of each other rotated by 90 degrees, no light will be able to pass.</p>
+        
+        <p>To create a black pixel, we applied a potential difference across the electrode. As the electric field is applied, the liquid crystals rotate in the direction of the field. Eventually, the light will only see one index of refraction as they pass through the liquid crystals and the polarization will not rotate. Thus, all the light will be blocked by the second polarizer and the pixel will appear black. By varying the strength of the electric field, we can create shades of gray.</p>
             
             <p align="center"><a href="lc-3d.html" class="btn btn-info" role="button">See a demo of an lcd pixel</a></p>
 
@@ -69,7 +71,21 @@
             <h3 class="panel-title" style="font-size: x-large;">Creating a full-color LCD</h3>
         </div>
         <div class="panel-body">
-            <p>To create a full color LCD, each pixel is really 3 pixels. Each sub-pixel is covered by a filter that only lets red, green, or blue light through. By varying the intensity of the red, green, and blue sub-pixel a full array of colors can be created. Putting millions of these 3 sub-pixel arrangements together creates a full-color screen. </p>
+            <p>To create a full color LCD, each pixel is subdivided into 3 sub-pixels. Each sub pixel is a full polarizer-analyzer liquid crystal setup. Every sub-pixel is covered by a filter that only lets red, green, or blue light through. By varying the intensity of the red, green, and blue sub-pixels a full array of colors can be created. Putting millions of these 3 sub-pixel arrangements together creates a full-color screen. </p>
+        </div>
+    </div>
+    
+        <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title" style="font-size: x-large;">Some common problems with LCDs</h3>
+        </div>
+        <div class="panel-body">
+            <h5>Viewing angles</h5>
+            <p>Without any additional "tricks", the LCDs as described above are actually not very good. Probably the most common issue with LCDs is their limited viewing angle. LCDs are designed to be viewed straight on. However, the shift in polarization as the light travels between the two polarizers in the pixel setup is dependent on the distance the light travels. If you look at a screen off-axis, the distance the light has to travel through the pixel to get to your eye increases, and so the amount of light that gets through the second polarizer changes. Past a certain angle, the light will have traveled far enough such that the polarization is the opposite as it would be on-axis. This point is where the screens seem to invert.</p>
+            <p>Viewing angles can be improved on these types of LCDs by applying a carefully designed film on top of the screen. Other types of LCDs such as IPS and PLS, fix this problem by eliminating the dependence on distance. However, in IPS displays use more power and have slower response times due to the layout of liquid crystals within the pixel.</p>
+            
+            <h5>Power Consumption and Environmental Impact</h5>
+            <p>Inexpensive and old LCDs used fluorescent tubes as backlights. While these LCDs are more power efficient than CRT tubes, they still contain mercury. Modern LCDs use LEDs for their backlight. LEDs are much brighter per watt of power consumed and are also recyclable. However, LCDs still dump away at least half the light from the backlight since only half of the light from the LED makes it through the first polarizer in the pixel. When black pixels are created, all of the light is being wasted. One possible solution to this problem is by including a new type of polarizer that instead of simply blocking light that doesn't make it through the polarizer, reflects it back and forth at different polarizations until eventually most of the light makes it through the polarizer. However, compared to other display technologies, OLED displays don't have this problem since they contain no polarizers and no backlight.</p>
         </div>
     </div>
         
